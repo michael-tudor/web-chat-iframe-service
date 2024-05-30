@@ -1,0 +1,59 @@
+.chat-window {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.message-list,
+.send-message-form {
+  padding: 12px;
+}
+
+.message {
+  padding: 12px 0;
+}
+
+.message-text {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.user-message {
+  text-align: right;
+
+  .message-text {
+    background-color: #eaeaea;
+  }
+}
+
+.partner-message {
+  text-align: left;
+
+  .message-text {
+    background-color: #007bff;
+    color: white;
+  }
+}
+
+.message-info {
+  padding: 2px 16px;
+  font-size: 0.8em;
+}
+
+.send-message-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  border-top: 1px solid #dee2e6;
+}
+
+.send-message-form textarea {
+  flex-grow: 1;
+  resize: none; /* Disable manual resize */
+  min-height: 40px;
+  max-height: 200px; /* Maximum height before scrollbar appears */
+  margin-right: 10px;
+  overflow: auto; /* Add scrollbar when content overflows */
+}

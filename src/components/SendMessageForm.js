@@ -6,10 +6,13 @@ class SendMessageForm extends React.Component {
     this.state = {
       message: ''
     };
+    this.textareaRef = React.createRef();
   }
 
   handleChange = (event) => {
     this.setState({ message: event.target.value });
+    this.textareaRef.current.style.height = 'inherit';
+    this.textareaRef.current.style.height = `${this.textareaRef.current.scrollHeight}px`;
   }
 
   handleSubmit = (event) => {
@@ -19,14 +22,16 @@ class SendMessageForm extends React.Component {
 
   render() {
     return (
-      <form className="send-message-form col-12" onSubmit={this.handleSubmit}>
-        <input
+      <form className="send-message-form" onSubmit={this.handleSubmit}>
+        <textarea
           className="form-control"
+          ref={this.textareaRef}
           onChange={this.handleChange}
           value={this.state.message}
-          placeholder="Type your message and hit ENTER"
-          type="text"
+          placeholder="Type your message here..."
+          rows="1"
         />
+        <button type="submit" className="btn btn-primary">Send</button>
       </form>
     );
   }

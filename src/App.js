@@ -9,7 +9,7 @@ import ChatWindow from './components/ChatWindow';
 
 function App() {
   return (
-    <div className="App container-fluid">
+    <div className="chat">
       <ChatWindow />
     </div>
   );

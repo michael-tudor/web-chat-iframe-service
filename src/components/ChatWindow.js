@@ -6,13 +6,19 @@ class ChatWindow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      messages: []
+      messages: [
+        {
+          text: 'Welcome to our website! How can we assist you today?',
+          status: 'received',
+          time: new Date().toLocaleTimeString()
+        }
+      ]
     };
   }
 
   render() {
     return (
-      <div className="chat-window row">
+      <div className="chat-window">
         <MessageList messages={this.state.messages} />
         <SendMessageForm />
       </div>
