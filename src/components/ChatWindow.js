@@ -14,13 +14,18 @@ class ChatWindow extends React.Component {
         }
       ]
     };
+    this.messageListRef = React.createRef();
+  }
+
+  handleMessageSend = (message) => {
+    this.messageListRef.current.addMessage(message);
   }
 
   render() {
     return (
       <div className="chat-window">
-        <MessageList messages={this.state.messages} />
-        <SendMessageForm />
+        <MessageList ref={this.messageListRef} initialMessages={this.state.messages} />
+        <SendMessageForm onMessageSend={this.handleMessageSend} />
       </div>
     );
   }

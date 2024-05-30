@@ -17,12 +17,17 @@ class SendMessageForm extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    // TODO: send the message to the server
+    this.props.onMessageSend({
+      text: this.state.message,
+      isUser: true,
+      time: new Date().toLocaleTimeString()
+    });
+    this.setState({ message: '' });
   }
 
   render() {
     return (
-      <form className="send-message-form" onSubmit={this.handleSubmit}>
+      <form className="message-form" onSubmit={this.handleSubmit}>
         <textarea
           className="form-control"
           ref={this.textareaRef}
